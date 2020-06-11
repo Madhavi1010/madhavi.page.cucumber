@@ -33,10 +33,10 @@ public class TestRunner {
         //driver= new ChromeDriver();
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("browser", "Safari");
-        caps.setCapability("browser_version", "13.1");
-        caps.setCapability("os", "OS X");
-        caps.setCapability("os_version", "Catalina");
+        caps.setCapability("browser", "Chrome");
+        caps.setCapability("browser_version", "83.0");
+        caps.setCapability("os", "Windows");
+        caps.setCapability("os_version", "10");
         caps.setCapability("resolution", "1024x768");
         caps.setCapability("name", "Bstack-[Java] Sample Test");
         try {
