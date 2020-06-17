@@ -27,8 +27,12 @@ public class HomePage
      @FindBy(xpath = "(//input[@value='Add to cart'])[3]")
       public WebElement item;
 
+     @FindBy(linkText = "New products") public WebElement newProuctsLink;
 
-
+       public void clickNewproducts()
+       {
+           newProuctsLink.click();
+       }
 
      public void addItem()
      {

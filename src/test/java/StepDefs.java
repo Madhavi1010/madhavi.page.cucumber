@@ -4,16 +4,10 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.CartPage;
-import pageObjects.CheckoutPage;
-import pageObjects.HomePage;
-import pageObjects.LoginPage;
+import pageObjects.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,7 +18,8 @@ public class StepDefs extends TestRunner
      public   static CartPage cartpage;
      public   static LoginPage loginpage;
      public   static CheckoutPage checkoutpage;
-
+     public  static NewProductsPage newProductspage;
+    public   static ContactUsPage contactUspage;
         @Before
         public  static void start()
         {
@@ -37,7 +32,8 @@ public class StepDefs extends TestRunner
              cartpage= new CartPage(driver);
             loginpage= new LoginPage(driver);
             checkoutpage= new CheckoutPage(driver);
-
+            newProductspage = new NewProductsPage(driver);
+            contactUspage = new ContactUsPage(driver);
         }
     @After
     public void stop(Scenario scenario)
@@ -130,6 +126,60 @@ public class StepDefs extends TestRunner
         Assert.assertEquals(expText,actualText);
 
     }
+
+    @When("I click on New Products from the menu")
+    public void i_click_on_New_Products_from_the_menu()
+    {
+      homepage.clickNewproducts();
+    }
+
+    @Then("I need to go to New products page and see the available products")
+    public void i_need_to_go_to_New_products_page_and_see_the_available_products()
+    {
+      newProductspage.clickAddToCart();
+    }
+
+    @When("I click on Contact Us page link from the menu")
+    public void i_click_on_Contact_Us_page_link_from_the_menu()
+    {
+      newProductspage.clickContactUs();
+    }
+
+    @Then("Contact Us page should be open")
+    public void contact_Us_page_should_be_open()
+    {
+      newProductspage.clickContactUs();
+    }
+
+    @When("I enter name {string}")
+    public void i_enter_name(String name)
+    {
+      contactUspage.enterName(name);
+    }
+
+    @When("I enter email {string}")
+    public void i_enter_email(String email)
+    {
+   contactUspage.enterEmail(email);
+    }
+
+    @When("I enter the {string}")
+    public void i_enter_the(String enquiry)
+    {
+   contactUspage.enterEnquiry(enquiry);
+    }
+
+    @When("I click on Submit button")
+    public void i_click_on_Submit_button()
+    {
+ contactUspage.submitEnquiry();
+    }
+
+    @Then("I should see confirmation message {string}")
+    public void i_should_see_confirmation_message(String string) {
+
+    }
+
 
 
 }

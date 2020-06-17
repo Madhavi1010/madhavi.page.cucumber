@@ -29,8 +29,8 @@ public class TestRunner {
 
     @BeforeClass
     public static void BrowserStart() throws MalformedURLException, InterruptedException {
-        // WebDriverManager.chromedriver().setup();
-        //driver= new ChromeDriver();
+       //  WebDriverManager.chromedriver().setup();
+       // driver= new ChromeDriver();
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("browser", "Chrome");
