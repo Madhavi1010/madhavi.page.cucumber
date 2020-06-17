@@ -23,12 +23,13 @@ public class NewProductsPage
 
     public void clickAddToCart()
     {   driver.getTitle();
-        addToCartLink.click();
+        addToCartLink.isDisplayed();
     }
 
 
-    public void clickContactUs()
+    public void clickContactUs() throws InterruptedException
     {   driver.getTitle();
+       Thread.sleep(2000);
         contactUsLink.click();
     }
 

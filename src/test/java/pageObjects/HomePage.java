@@ -39,6 +39,9 @@ public class HomePage
         driver.navigate().refresh();
          item.click();
      }
-
+    public void pageTitle()
+    {
+        driver.getTitle();
+    }
 
 }

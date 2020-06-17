@@ -140,15 +140,13 @@ public class StepDefs extends TestRunner
     }
 
     @When("I click on Contact Us page link from the menu")
-    public void i_click_on_Contact_Us_page_link_from_the_menu()
-    {
+    public void i_click_on_Contact_Us_page_link_from_the_menu() throws InterruptedException {
       newProductspage.clickContactUs();
     }
 
     @Then("Contact Us page should be open")
-    public void contact_Us_page_should_be_open()
-    {
-      newProductspage.clickContactUs();
+    public void contact_Us_page_should_be_open() throws InterruptedException {
+      homepage.pageTitle();
     }
 
     @When("I enter name {string}")
@@ -176,8 +174,10 @@ public class StepDefs extends TestRunner
     }
 
     @Then("I should see confirmation message {string}")
-    public void i_should_see_confirmation_message(String string) {
-
+    public void i_should_see_confirmation_message(String expMessage)
+    {
+      String actualMessage=contactUspage.assertion();
+        Assert.assertEquals(actualMessage, expMessage);
     }
 
 

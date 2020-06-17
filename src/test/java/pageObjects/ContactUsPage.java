@@ -36,16 +36,17 @@ public class ContactUsPage
         enquiryTextBox.sendKeys(enquiry);
     }
 
-    public void submitEnquiry()
-    {
+    public void submitEnquiry() {
         driver.getTitle();
         sendButton.click();
+    }
+    public String assertion() {
+        String actualMessage = confirmationMessage.getText();
+        return actualMessage;
+        //String expMessage = "Your enquiry has been successfully sent to the store owner.";
 
-      String  actualMessage=confirmationMessage.getText();
-      String  expMessage="Your enquiry has been successfully sent to the store owner.";
-      Assert.assertEquals(actualMessage,expMessage);
-
+    }
   }
 
 
-}
+
